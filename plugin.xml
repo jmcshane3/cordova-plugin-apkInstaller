@@ -27,6 +27,11 @@
         <config-file target="res/xml/config.xml" parent="/*">
             <preference name="AndroidPersistentFileLocation" value="Internal" />
         </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <provider android:authorities="${applicationId}.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+                <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+            </provider>
+        </config-file>        
         <source-file src="src/android/ApkInstaller.java" target-dir="src/plugin/apkInstaller/"/>
         <source-file src="src/android/xml/file_paths.xml" target-dir="res/xml/"/>
         <lib-file src="src/android/libs/android-support-v4.jar" />
